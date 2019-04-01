@@ -29,6 +29,8 @@ class App extends Component {
             {//  <TopicsSort path='/articles?topic=/:topic_id' />
             }
             <Comments path='articles/:article_id/comments' />
+            {//<Author path='articles/?author=/:author_id' />
+            }
           </Router>
         </header>
       </div>

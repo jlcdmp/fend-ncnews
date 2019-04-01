@@ -13,22 +13,32 @@ class Comments extends Component {
       .then((comments) => {
         comments.data.comments.map(comment => {
           if (comment.article_id == this.props.article_id)
-            return this.setState({ comments: comment })
+            return this.setState({ comments: comments.data.comments })
         })
       })
   }
 
+
+
+
   render() {
-    const { comments } = this.state
-    const hello = comments.map(comment => comment.body)
-    console.log(hello)
+
 
     return (
       < div >
-
+        {this.state.comments.map(comment => <p>{comment.body} <br />written by:{comment.author}   votes: {comment.votes} created at: {comment.created_at}</p>
+        )}
       </div >
     );
   }
+
+
+
+
+
+
+
+
 }
 
 export default Comments;
