@@ -1,0 +1,9 @@
+.articlelist{
+  list-style-type: none;
+}
+
+.articleitem{
+text-decoration: none;
+color:black;
+
+}

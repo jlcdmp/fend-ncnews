@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import './App.css';
 import { Router, Link } from '@reach/router'
 import Articles from './components/Articles';
 import Topics from './components/Topics';
+import Article from './components/Article'
+//import TopicsSort from './components/TopicsSortby'
+import Comments from './components/Comments'
 
 class App extends Component {
   state = {
@@ -20,11 +22,13 @@ class App extends Component {
           </nav>
 
           <Router>
-            <Articles path='/articles' onClick={this.click} />
+            <Articles path='/articles' />
             <Topics path='/topics' />
             <Home path='/' />
-            <Article path='/:article_id' props={} />
-
+            <Article path='/articles/:article_id' />
+            {//  <TopicsSort path='/articles?topic=/:topic_id' />
+            }
+            <Comments path='articles/:article_id/comments' />
           </Router>
         </header>
       </div>

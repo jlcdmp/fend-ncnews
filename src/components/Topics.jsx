@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Link } from '@reach/router'
 
 class Topics extends Component {
   state = {
@@ -15,9 +16,10 @@ class Topics extends Component {
   render() {
     const { topics } = this.state
     const eachtopic = topics.map(topic => {
-      return <li>{topic.slug}</li>
+      return <li key={topic.slug}><Link to={`/articles?topic=${topic.slug}`} >{topic.slug}</Link></li>
     })
     return (
+
       <div>
         <ul>{eachtopic}</ul>
       </div>
