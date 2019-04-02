@@ -1,9 +1,12 @@
 .articlelist{
   list-style-type: none;
+  padding:5px;
+  margin:5px
 }
 
 .articleitem{
 text-decoration: none;
 color:black;
-
+padding:5px;
+margin:5px;
 }

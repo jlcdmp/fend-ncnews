@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+const moment = require('moment')
+
 
 class Comments extends Component {
   constructor(props) {
@@ -26,9 +28,14 @@ class Comments extends Component {
 
     return (
       < div >
-        {this.state.comments.map(comment => <p>{comment.body} <br />written by:{comment.author}   votes: {comment.votes} created at: {comment.created_at}</p>
+        {this.state.comments.map(comment => <p>{comment.author} <br />{comment.body}   votes: {comment.votes} <button type='button'>👍</button> <button type='button'>👎</button><br /> posted: {moment(comment.created_at).fromNow()}</p>
         )}
+        <form>
+          your comment <input type='text' ></input >
+          <button type='button'>comment</button>
+        </form>
       </div >
+
     );
   }
 

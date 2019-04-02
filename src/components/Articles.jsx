@@ -20,6 +20,17 @@ class Articles extends Component {
     const { articles } = this.state
     return (
       <div>
+        <select >
+          <option></option>
+          <option>newest</option>
+          <option>oldest</option>
+          <option>most votes</option>
+          <option>least votes</option>
+          <option>most discussed</option>
+          <option>random</option>
+        </select >
+        <button>search</button>
+
         <ul className='articlelist' >{articles.map(article => {
           return <li key={article.article_id}><Link className='articleitem' data={this.state.articles} to={`/articles/${article.article_id}`}>{article.title}</Link ></li >
         })
