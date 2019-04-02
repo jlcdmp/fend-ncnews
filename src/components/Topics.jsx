@@ -19,14 +19,11 @@ class Topics extends Component {
       return <li key={topic.slug}><Link to={`/articles?topic=${topic.slug}`} >{topic.slug}</Link></li>
     })
     return (
-
       <div>
         <ul>{eachtopic}</ul>
       </div>
     );
   }
-
-
 }
 
 export default Topics;

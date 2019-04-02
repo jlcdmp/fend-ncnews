@@ -1,0 +1,42 @@
+.allarticlelist{
+    list-style-type: none;
+  padding:7px;
+  margin:7px;
+  font-size: 10px;
+  max-height: 44em;
+  overflow: scroll
+
+}
+
+.articleitem{
+text-decoration: none;
+color:black;
+padding:1.5px;
+margin:1.5px;
+display:inline-block;
+background-color: whitesmoke
+}
+
+
+.navbar{
+  bottom:30px;
+  font-size: 15px;
+  position: fixed;
+background-color:whitesmoke;
+}
+
+.navlink{
+  text-decoration: none;
+  color:black;
+}
+
+.title{
+  padding:0;
+  margin:0;
+}
+
+.articleitemblock{
+  background-color:gainsboro;
+  padding:5px;
+  margin: 5px
+}
