@@ -19,22 +19,32 @@ class Articles extends Component {
   componentDidUpdate() { }
 
   render() {
-    console.log(this.props)
     const { articles } = this.state
 
     return (
       < div >
-        <select >
-          <option></option>
-          <option>newest</option>
-          <option>oldest</option>
-          <option>most votes</option>
-          <option>least votes</option>
-          <option>most discussed</option>
-          <option>random</option>
-        </select >
+        <div>
+          <p>sort</p>
+          <select >
+            <option></option>
+            <option>newest</option>
+            <option>oldest</option>
+            <option>most votes</option>
+            <option>least votes</option>
+            <option>most discussed</option>
+            <option>random</option>
+          </select >
 
-        <button>search</button>
+          <p>topics</p>
+          <select>
+            <option></option>
+            <option>coding</option>
+            <option>cooking</option>
+            <option>football</option>
+          </select>
+
+          <Link to='/newarticle'><button>add</button></Link>
+        </div>
 
         <ul className='allarticlelist' >{articles.map(article => {
 

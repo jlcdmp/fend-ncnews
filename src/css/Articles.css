@@ -20,9 +20,9 @@ background-color: whitesmoke
 
 .navbar{
   bottom:30px;
-  font-size: 15px;
   position: fixed;
 background-color:whitesmoke;
+width:100%;
 }
 
 .navlink{

@@ -1,6 +1,35 @@
 .commentAuthor{
-  padding:0
+  padding:0;
+  margin:0;
+font-size: 9px;
+
 }
+
 .commentBody{
   padding:0;
+  margin:0;
+  font-size: 9px
+  
+}
+
+.commentVotes{
+  padding:0;
+  margin:0;
+    font-size: 8px
+
+
+}
+
+.commentPosted{
+  padding:0;
+  margin:0;
+    font-size: 8px
+
+}
+
+.comment{
+  background-color:whitesmoke;
+  padding:0;
+  margin:0;
+  display:flexbox
 }
