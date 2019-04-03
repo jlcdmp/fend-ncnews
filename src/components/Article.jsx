@@ -1,28 +1,31 @@
 import { fetchArticle } from './api'
 import React, { Component } from 'react';
 import { Link } from '@reach/router'
+import { voteOnArticle } from './api'
 import '../css/Comments.css'
 import Comment from './Comments'
+
 const moment = require('moment')
 
 
 class Article extends Component {
   state = {
     article: '',
-    isHidden: true
+    isHidden: true,
+    voteChange: 0
   }
 
   async componentDidMount() {
-    const articles = await fetchArticle()
-    articles.map(article => {
-      if (article.article_id == this.props.article_id) {
-        this.setState({ article: article })
-      }
-    })
+    const article_id = this.props.article_id
+    const articles = await fetchArticle(article_id)
+    this.setState({ article: articles })
   }
 
 
+
   render() {
+    //const { voteChange } = this.state
+
     return (
       < article className='article' >
         <Link to='/articles'>Back</Link>
@@ -33,23 +36,42 @@ class Article extends Component {
         </Link>
         <p> Posted:{moment(this.state.article.created_at).fromNow()} </p>
         <p>{this.state.article.body}</p>
-        <p>{this.state.article.votes} <button type='button'>👍</button> <button type='button'>👎</button></p>
-        <p onClick={this.handleClick}>comments</p>
+
+        <p>votes {this.state.article.votes}</p>
+
+        <button type='button' onClick={() => this.handleVoteClick(1)}  >
+          <span role="img" aria-label="Thumbs-up" >
+            👍
+          </span>
+        </button>
+
+        <button type='button' onClick={() => this.handleVoteClick(-1)}  >
+          <span role="img" aria-label="Thumbs-down" >
+            👎
+          </span>
+        </button>
+
+
+        <p onClick={this.handleCommentClick}>comments</p>
         {this.state.isHidden ? null : <Comment article_id={this.props.article_id} className='commentsection' />}
         <br />
       </article >
     );
   }
 
-  handleClick = e => {
+  handleCommentClick = e => {
     this.setState({
       isHidden: !this.state.isHidden
     })
   }
 
-
-
-
+  handleVoteClick = (numOfVotes) => {
+    console.log(numOfVotes)
+    const { article } = this.state
+    voteOnArticle(article.article_id, numOfVotes)
+    this.setState(prevState => ({ voteChange: prevState + numOfVotes })
+    )
+  }
 }
 
 export default Article;

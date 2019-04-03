@@ -25,8 +25,15 @@ export const postArticle = async (article) => {
 
 
 
-export const fetchArticle = async () => {
-  const { data } = await axios.get(`${BASEURL}/articles`)
+export const fetchArticle = async (article_id) => {
+  const { data } = await axios.get(`${BASEURL}articles/${article_id}`)
     .catch(err => err)
-  return data.articles
+  return data.article
+}
+
+
+export const voteOnArticle = async (article_id, numOfVotes) => {
+  const { data } = await axios.patch(`${BASEURL} / articles / ${article_id}`, { votes: numOfVotes })
+    .catch(err => err)
+  return data.article
 }

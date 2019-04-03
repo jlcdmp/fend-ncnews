@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Router, Link } from '@reach/router'
+import { Router } from '@reach/router'
 import Articles from './components/Articles';
 import Topics from './components/Topics';
 import Article from './components/Article'

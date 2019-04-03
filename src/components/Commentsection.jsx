@@ -9,11 +9,20 @@ const Commentsection = (props) => {
           <li className='commentAuthor'>{comment.author}</li>
           <li className='commentPosted' >{moment(comment.created_at).fromNow()}</li>
           <li className='commentBody' > {comment.body} </li>
-          {comment.votes > 8 ? <span>🔥</span> : null}
-          {comment.votes < 0 ? <span>💩</span> : null}
+          {comment.votes > 8 ? <span role="img" aria-label="Fire" >🔥</span> : null}
+          {comment.votes < 0 ? <span role="img" aria-label="Poop" >💩</span> : null}
           <li className='commentVotes' >{comment.votes}</li>
-          <button type='button'>👍</button>
-          <button type='button'>👎</button>
+          <button type='button'>
+            <span role="img" aria-label="Thumbs-up" >
+              👍
+          </span>
+          </button>
+          <button type='button'>
+            <span role="img" aria-label="Thumbs-up" >
+              👎
+          </span>
+
+          </button>
         </ul>
       </div >
     )

@@ -13,10 +13,7 @@ class Comment extends Component {
   async componentDidMount() {
     const article_id = this.props.article_id
     const comments = await fetchComments(article_id)
-    comments.map(comment => {
-      if (comment.article_id == article_id)
-        return this.setState({ comments: comments })
-    })
+    return this.setState({ comments: comments })
   }
 
   render() {
