@@ -21,7 +21,6 @@ const Commentsection = (props) => {
             <span role="img" aria-label="Thumbs-up" >
               👎
           </span>
-
           </button>
         </ul>
       </div >
