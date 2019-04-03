@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from '@reach/router'
 import '../css/Articles.css'
 import { BASEURL } from './base'
+import Articlelist from './Articlelist'
 
 class Articles extends Component {
   state = {
@@ -23,42 +24,28 @@ class Articles extends Component {
 
     return (
       < div >
-        <div>
-          <p>sort</p>
-          <select >
-            <option></option>
-            <option>newest</option>
-            <option>oldest</option>
-            <option>most votes</option>
-            <option>least votes</option>
-            <option>most discussed</option>
-            <option>random</option>
-          </select >
+        <p>sort</p>
+        <select >
+          <option></option>
+          <option>newest</option>
+          <option>oldest</option>
+          <option>most votes</option>
+          <option>least votes</option>
+          <option>most discussed</option>
+          <option>random</option>
+        </select >
 
-          <p>topics</p>
-          <select>
-            <option></option>
-            <option>coding</option>
-            <option>cooking</option>
-            <option>football</option>
-          </select>
+        <p>topics</p>
+        <select>
+          <option></option>
+          <option>coding</option>
+          <option>cooking</option>
+          <option>football</option>
+        </select>
 
-          <Link to='/newarticle'><button>add</button></Link>
-        </div>
+        <Link to='/newarticle'><button>add</button></Link>
 
-        <ul className='allarticlelist' >{articles.map(article => {
-
-          return <li className='articleitemblock' key={article.article_id}>
-
-            <Link className='articleitem' data={this.state.articles} to={`/articles/${article.article_id}`}>
-              {article.title}
-            </Link >
-            <br />  by:{article.author} votes:{article.votes}{"     "}comments:{article.comment_count}
-
-          </li >
-
-        })
-        }</ul>
+        <Articlelist articles={this.state.articles} />
       </div >
     )
 

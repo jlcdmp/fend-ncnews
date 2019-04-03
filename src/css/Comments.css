@@ -31,5 +31,11 @@ font-size: 9px;
   background-color:whitesmoke;
   padding:0;
   margin:0;
-  display:flexbox
+  display:flexbox;
+}
+
+
+.commentList{
+  list-style-type: none;
+  padding:2px;
 }

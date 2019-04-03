@@ -10,6 +10,7 @@ const moment = require('moment')
 class Article extends Component {
   state = {
     article: '',
+    isHidden: true
   }
 
   componentDidMount() {
@@ -34,12 +35,22 @@ class Article extends Component {
         <p> Posted:{moment(this.state.article.created_at).fromNow()} </p>
         <p>{this.state.article.body}</p>
         <p>{this.state.article.votes} <button type='button'>👍</button> <button type='button'>👎</button></p>
-        <p>view comments</p>
-        <Comment article_id={this.props.article_id} />
+        <p onClick={this.handleClick}>comments</p>
+        {this.state.isHidden ? null : <Comment article_id={this.props.article_id} className='commentsection' />}
         <br />
       </div >
     );
   }
+
+  handleClick = e => {
+    this.setState({
+      isHidden: !this.state.isHidden
+    })
+  }
+
+
+
+
 }
 
 export default Article;
