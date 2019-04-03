@@ -13,7 +13,6 @@ class ArticleForm extends Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div>
         <p>post new article</p>

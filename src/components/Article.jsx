@@ -13,7 +13,6 @@ class Article extends Component {
     article: '',
     isHidden: true,
     voteChange: 0,
-    disbaleButton: false
   }
 
   async componentDidMount() {
@@ -48,7 +47,7 @@ class Article extends Component {
           <span role="img" aria-label="Thumbs-down" > 👎</span>
         </button>
 
-        <p onClick={this.handleCommentClick}>comments</p>
+        <p onClick={this.handleCommentClick}>view comments</p>
         {this.state.isHidden ? null : <Comment article_id={this.props.article_id} className='commentsection' />}
         <br />
       </article >
@@ -63,7 +62,6 @@ class Article extends Component {
 
   handleVoteClick = (numOfVotes) => {
     const { article } = this.state
-    this.setState({ disbaleButton: true })
     voteOnArticle(article.article_id, numOfVotes)
     this.setState(prevState => ({ voteChange: prevState.voteChange + numOfVotes })
     )

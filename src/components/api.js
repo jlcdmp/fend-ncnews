@@ -33,9 +33,13 @@ export const fetchArticle = async (article_id) => {
 
 
 export const voteOnArticle = async (article_id, numOfVotes) => {
-  console.log(numOfVotes)
   const { data } = await axios.patch(`${BASEURL}/articles/${article_id}`, { inc_votes: numOfVotes })
     .catch(err => err)
-  console.log(data)
   return data.article
+}
+
+export const voteOnComment = async (comment_id, numOfVotes) => {
+  const { data } = await axios.patch(`${BASEURL}/comments/${comment_id}`, { inc_votes: numOfVotes })
+    .catch(err => err)
+  return data.comment
 }

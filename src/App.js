@@ -4,10 +4,12 @@ import Articles from './components/Articles';
 import Topics from './components/Topics';
 import Article from './components/Article'
 import ArticleForm from './components/ArticleForm'
-import Navbar from './Navbar';
+import Navbar from './components/Navbar';
+import Login from './components/Login';
 
 class App extends Component {
   state = {
+    currentuser: ''
   }
 
   render() {
@@ -16,10 +18,11 @@ class App extends Component {
         <header className="App-header">
           <h3 className='title'>nc news</h3>
           <div>
-            <Navbar hidden={this.state.hidden} />
+            <Navbar />
           </div>
           <Router>
-            <Home path='/' />
+            <Login path='/' />
+            <Home path='/home' />
             <Articles path='/articles' />
             <Article path='/articles/:article_id' />
             <Topics path='/topics' />

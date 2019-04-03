@@ -11,20 +11,27 @@ class Comment extends Component {
     isHidden: true
   }
   async componentDidMount() {
-    const article_id = this.props.article_id
+    const { article_id } = this.props
     const comments = await fetchComments(article_id)
     return this.setState({ comments: comments })
+
   }
 
   render() {
+
     return (
-      <div>
+      <>
         <form>
-          <textarea></textarea>
+          <textarea rows='4' cols='57'></textarea>
           <button type='submit'>comment</button>
         </form>
+        <select>
+          <option>newest</option>
+          <option>most likes</option>
+          <option>most dislikes</option>
+        </select>
         <Commentsection comments={this.state.comments} />
-      </div>
+      </>
     );
   }
 
@@ -34,7 +41,6 @@ class Comment extends Component {
   }
 
   handleChange = e => {
-    console.log(e.target.value)
     this.setState({ userComment: e.target.value })
   }
 
