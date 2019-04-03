@@ -1,5 +1,5 @@
+import { fetchComments } from './api'
 import React, { Component } from 'react';
-import { BASEURL } from './base'
 import axios from 'axios'
 import Commentsection from './Commentsection'
 
@@ -10,14 +10,13 @@ class Comment extends Component {
     userAuthor: '',
     isHidden: true
   }
-  componentDidMount() {
-    axios.get(`${BASEURL}/articles/${this.props.article_id}/comments`)
-      .then((comments) => {
-        comments.data.comments.map(comment => {
-          if (comment.article_id == this.props.article_id)
-            return this.setState({ comments: comments.data.comments })
-        })
-      })
+  async componentDidMount() {
+    const article_id = this.props.article_id
+    const comments = await fetchComments(article_id)
+    comments.map(comment => {
+      if (comment.article_id == article_id)
+        return this.setState({ comments: comments })
+    })
   }
 
   render() {
@@ -44,7 +43,7 @@ class Comment extends Component {
 
 
   addComment = () => {
-    axios.post(`${BASEURL}/articles/${this.props.article_id}/comments`, this.state.userComment)
+    axios.post(`https://joes-nc-news.herokuapp.com/api/articles/${this.props.article_id}/comments`, this.state.userComment)
       .then((res) => {
         console.log(res)
       })

@@ -1,8 +1,7 @@
-import { BASEURL } from './base'
-import '../css/Comments.css'
+import { fetchArticle } from './api'
 import React, { Component } from 'react';
-import axios from 'axios'
 import { Link } from '@reach/router'
+import '../css/Comments.css'
 import Comment from './Comments'
 const moment = require('moment')
 
@@ -13,20 +12,20 @@ class Article extends Component {
     isHidden: true
   }
 
-  componentDidMount() {
-    axios.get(`${BASEURL}/articles/`)
-      .then((articles) => {
-        articles.data.articles.map(article => {
-          if (article.article_id == this.props.article_id) {
-            this.setState({ article: article })
-          }
-        })
-      })
+  async componentDidMount() {
+    const articles = await fetchArticle()
+    articles.map(article => {
+      if (article.article_id == this.props.article_id) {
+        this.setState({ article: article })
+      }
+    })
   }
+
 
   render() {
     return (
-      < div className='article' >
+      < article className='article' >
+        <Link to='/articles'>Back</Link>
         <p>{this.state.article.title}</p >
         <p>{this.state.article.topic}</p>
         <Link to=''>
@@ -38,7 +37,7 @@ class Article extends Component {
         <p onClick={this.handleClick}>comments</p>
         {this.state.isHidden ? null : <Comment article_id={this.props.article_id} className='commentsection' />}
         <br />
-      </div >
+      </article >
     );
   }
 

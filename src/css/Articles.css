@@ -4,8 +4,6 @@
   margin:7px;
   font-size: 10px;
   max-height: 44em;
-  overflow: scroll
-
 }
 
 .articleitem{
@@ -39,4 +37,8 @@ width:100%;
   background-color:gainsboro;
   padding:5px;
   margin: 5px
+}
+
+.topbar{
+  display:flex;
 }

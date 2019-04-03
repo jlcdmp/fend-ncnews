@@ -1,10 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { BASEURL } from './base'
-import { navigate } from '@reach/router/lib/history';
-
-
-
 
 class ArticleForm extends Component {
   state = {
@@ -70,10 +65,8 @@ class ArticleForm extends Component {
 
 
   addArticle = () => {
-    console.log(this.state)
-    axios.post(`${BASEURL}articles`, this.state)
+    axios.post(`https://joes-nc-news.herokuapp.com/api/articles`, this.state)
       .then((res) => {
-
       })
       .catch(err => console.log(err))
   }
