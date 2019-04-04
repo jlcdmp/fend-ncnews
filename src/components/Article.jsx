@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Link } from '@reach/router'
 import { voteOnArticle } from './api'
 import '../css/Comments.css'
-import Comment from './Comments'
+import Comments from './Comments'
 
 const moment = require('moment')
 
@@ -25,7 +25,6 @@ class Article extends Component {
 
   render() {
     const { voteChange } = this.state
-
     return (
       < article className='article' >
         <Link to='/articles'>Back</Link>
@@ -48,7 +47,7 @@ class Article extends Component {
         </button>
 
         <p onClick={this.handleCommentClick}>view comments</p>
-        {this.state.isHidden ? null : <Comment article_id={this.props.article_id} className='commentsection' />}
+        {this.state.isHidden ? null : <Comments article_id={this.props.article_id} user={this.props.user.username} className='commentsection' />}
         <br />
       </article >
     );

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from '@reach/router'
+import Topicform from './Topicfrom';
 
 class Topics extends Component {
   state = {
@@ -21,9 +22,17 @@ class Topics extends Component {
     return (
       <div>
         <ul>{eachtopic}</ul>
+        <Topicform />
       </div>
+
     );
   }
+
+
+
+
+
+
 }
 
 export default Topics;

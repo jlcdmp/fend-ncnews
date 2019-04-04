@@ -9,7 +9,7 @@ const Navbar = (props) => {
       <Link to='/articles' className='navlink' >articles</Link>
       {"    "}
 
-      <Link to='/topcs' className='navlink'>topics</Link>
+      <Link to='/topics' className='navlink'>topics</Link>
       {"    "}
 
       <Link to='/newarticle' className='navlink'>post</Link>

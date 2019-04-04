@@ -1,30 +1,30 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import { postArticle } from './api';
+import Navbar from './Navbar';
 
 class ArticleForm extends Component {
   state = {
     title: '',
     body: '',
     topic: '',
-    author: ''
+    author: this.props.user.username
   }
 
-  componentDidMount() {
-  }
+
 
   render() {
     return (
       <div>
+        <Navbar />
         <p>post new article</p>
         <form>
-          <p>author</p>
-          <input onChange={this.handleInputA}></input>
           <p>title</p>
           <input onChange={this.handleInput}></input>
           <p>body</p>
           <textarea rows='15' cols='50' onChange={this.handleText}></textarea>
           <br />
           <p>topic</p>
+
           {/* <select onClick={this.handleTopic}>
             <option>football</option>
             <option>coding</option>
@@ -46,9 +46,7 @@ class ArticleForm extends Component {
   }
 
 
-  handleInputA = e => {
-    this.setState({ author: e.target.value })
-  }
+
   handleInput = e => {
     this.setState({ title: e.target.value })
   }
@@ -59,16 +57,10 @@ class ArticleForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    this.addArticle()
+    const article = this.state
+    postArticle(article)
   }
 
-
-  addArticle = () => {
-    axios.post(`https://joes-nc-news.herokuapp.com/api/articles`, this.state)
-      .then((res) => {
-      })
-      .catch(err => console.log(err))
-  }
 
 }
 

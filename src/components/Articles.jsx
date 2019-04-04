@@ -3,6 +3,7 @@ import { Link } from '@reach/router'
 import '../css/Articles.css'
 import Articlelist from './Articlelist'
 import { fetchArticles } from './api'
+import Navbar from './Navbar'
 
 
 class Articles extends Component {
@@ -20,6 +21,7 @@ class Articles extends Component {
   render() {
     return (
       < div >
+        <Navbar />
         <header className='topbar'>
           <p>sort</p>
           <select >

@@ -1,58 +1,35 @@
 import { fetchComments } from './api'
 import React, { Component } from 'react';
-import axios from 'axios'
 import Commentsection from './Commentsection'
+import Commentsform from './Commentsform';
 
 class Comment extends Component {
   state = {
     comments: [],
-    userComment: '',
-    userAuthor: '',
-    isHidden: true
+    isHidden: true,
   }
+
+
   async componentDidMount() {
-    const { article_id } = this.props
-    const comments = await fetchComments(article_id)
+    const comments = await fetchComments(this.props.article_id)
     return this.setState({ comments: comments })
 
   }
 
   render() {
-
     return (
       <>
-        <form>
-          <textarea rows='4' cols='57'></textarea>
-          <button type='submit'>comment</button>
-        </form>
         <select>
           <option>newest</option>
           <option>most likes</option>
           <option>most dislikes</option>
         </select>
+        <Commentsform article_id={this.props.article_id} user={this.props.user.username} />
+
         <Commentsection comments={this.state.comments} />
       </>
     );
   }
-
-  handleSubmit = e => {
-    e.preventDefault()
-    this.addComment()
-  }
-
-  handleChange = e => {
-    this.setState({ userComment: e.target.value })
-  }
-
-
-  addComment = () => {
-    axios.post(`https://joes-nc-news.herokuapp.com/api/articles/${this.props.article_id}/comments`, this.state.userComment)
-      .then((res) => {
-        console.log(res)
-      })
-      .catch(err => console.log(err))
-  }
-
 
 }
 

@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { navigate } from '@reach/router'
 
 
 const BASEURL = 'https://joes-nc-news.herokuapp.com/api/'
@@ -10,6 +11,13 @@ export const fetchArticles = async (search) => {
   return data.articles
 }
 
+export const fetchArticle = async (article_id) => {
+  const { data } = await axios.get(`${BASEURL}articles/${article_id}`)
+    .catch(err => err)
+  return data.article
+}
+
+
 export const fetchComments = async (article_id) => {
   const { data } = await axios.get(`${BASEURL}/articles/${article_id}/comments`)
     .catch(err => err)
@@ -17,18 +25,32 @@ export const fetchComments = async (article_id) => {
 }
 
 
-export const postArticle = async (article) => {
-  const { data } = await axios.post(`${BASEURL}/articles`)
-    .catch(err => err)
-  return data.article
+export const fetchUser = async (username) => {
+  const { data } = await axios.get(`${BASEURL}users/${username}`)
+  return data
 }
 
 
 
-export const fetchArticle = async (article_id) => {
-  const { data } = await axios.get(`${BASEURL}articles/${article_id}`)
+export const postTopic = async (topic) => {
+  const { data } = await axios.post(`${BASEURL}/topics`, topic)
+  navigate(`/topics`)
+    .catch(err => err)
+  return data.topic
+}
+
+export const postArticle = async (article) => {
+  const { data } = await axios.post(`${BASEURL}/articles`, article)
+  navigate(`/articles/${data.newArticle.article_id}`)
     .catch(err => err)
   return data.article
+}
+
+export const postComment = async (comment, article_id) => {
+  const { data } = await axios.post(`${BASEURL}/articles/${article_id}/comments`, comment)
+  navigate(`/articles/${data.newComment.article_id}`)
+    .catch(err => err)
+  return data.newComment
 }
 
 
