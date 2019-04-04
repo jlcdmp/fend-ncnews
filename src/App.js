@@ -11,47 +11,48 @@ import Home from './components/Home'
 class App extends Component {
   state = {
     user: null,
-    username: ''
+    username: '',
+    signup: false
   }
 
   render() {
-
     if (this.state.user === null) {
       return (
         <div>
           <p>login</p>
-          <form>
+          <form onSubmit={this.handleSubmit} >
             <p>username</p>
-            <input onChange={this.handleUsername}></input>
-            <p>password</p>
-            <input></input>
+            <input onChange={this.handleUsername} required ></input>
             <br />
+            <button type='submit'  >login</button>
           </form>
-          <button type='submit' onClick={this.handleSubmit} >login</button>
           <br />
-          <Link to='/signup'>sign up</Link>
+
+
+
+          <p>not got a account?</p>
+          <Link to='/signup'><button>create account</button></Link>
+
+          <Signup />
+
+
         </div>
-
       )
+
+
+
+
     } else {
-
-
       return (
         <div className="App">
-          <header className="App-header">
-            <h3 className='title'>nc news</h3>
-
-            <Router>
-              <Home path='/home' />
-              <Articles path='/articles' />
-              <Article path='/articles/:article_id' user={this.state.user} />
-              <Topics path='/topics' />
-              <ArticleForm path='/newarticle' user={this.state.user} />
-              <Signup path='/signup' />
-            </Router>
-
-
-          </header>
+          <h3 className='title'>nc news</h3>
+          <Router>
+            <Home path='/home' />
+            <Articles path='/articles' />
+            <Article path='/articles/:article_id' user={this.state.user} />
+            <Topics path='/topics' />
+            <ArticleForm path='/newarticle' user={this.state.user} />
+          </Router>
         </div >
       );
     }
@@ -68,14 +69,14 @@ class App extends Component {
       this.setState({ user: user.user })
       navigate('/home')
     }).catch(err => {
-      console.log('oh no!', err)
+      alert('invalid username')
     })
   }
 
+
+
+
 }
-
-
-
 
 
 

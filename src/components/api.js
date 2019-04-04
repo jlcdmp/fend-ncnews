@@ -1,9 +1,7 @@
 import axios from 'axios'
 import { navigate } from '@reach/router'
 
-
 const BASEURL = 'https://joes-nc-news.herokuapp.com/api/'
-
 
 export const fetchArticles = async (search) => {
   const { data } = await axios.get(`${BASEURL}/articles/${search}`)
@@ -17,20 +15,16 @@ export const fetchArticle = async (article_id) => {
   return data.article
 }
 
-
 export const fetchComments = async (article_id) => {
   const { data } = await axios.get(`${BASEURL}/articles/${article_id}/comments`)
     .catch(err => err)
   return data.comments
 }
 
-
 export const fetchUser = async (username) => {
   const { data } = await axios.get(`${BASEURL}users/${username}`)
   return data
 }
-
-
 
 export const postTopic = async (topic) => {
   const { data } = await axios.post(`${BASEURL}/topics`, topic)
@@ -53,7 +47,6 @@ export const postComment = async (comment, article_id) => {
   return data.newComment
 }
 
-
 export const voteOnArticle = async (article_id, numOfVotes) => {
   const { data } = await axios.patch(`${BASEURL}/articles/${article_id}`, { inc_votes: numOfVotes })
     .catch(err => err)
@@ -64,4 +57,11 @@ export const voteOnComment = async (comment_id, numOfVotes) => {
   const { data } = await axios.patch(`${BASEURL}/comments/${comment_id}`, { inc_votes: numOfVotes })
     .catch(err => err)
   return data.comment
+}
+
+export const postUser = async (username) => {
+  const { data } = await axios.post(`${BASEURL}/users`, username)
+  navigate('/home')
+    .catch(err => err)
+  return data.username
 }

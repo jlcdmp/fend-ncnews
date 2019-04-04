@@ -1,31 +1,39 @@
 import React, { Component } from 'react';
+import { postUser } from './api';
 
 class Signup extends Component {
-  state = {}
+  state = {
+    username: ''
+  }
 
   render() {
     return (
       <div>
         <p>
-          register
+          sign up
       </p>
-
         <form>
-          <p>first name</p>
-          <input></input>
-          <p>last name</p>
-          <input></input>
           <p>username</p>
-          <input></input>
-          <p>password</p>
-          <input></input>
+          <input onChange={this.handleUsername}></input>
           <br />
-          <button>sign up</button>
+          <button type='submit' onClick={this.handleSubmit}>sgn up</button>
         </form>
-
       </div>
     );
   }
+
+  handleUsername = e => {
+    this.setState({ username: e.target.value })
+  }
+
+  handleSubmit = e => {
+    const { username } = this.state
+    postUser(username)
+
+  }
+
+
+
 }
 
 export default Signup;
