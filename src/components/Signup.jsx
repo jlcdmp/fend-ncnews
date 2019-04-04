@@ -3,7 +3,9 @@ import { postUser } from './api';
 
 class Signup extends Component {
   state = {
-    username: ''
+    username: '',
+    name: '',
+    avatar_url: 'https://tinyurl.com/yytdvy33'
   }
 
   render() {
@@ -12,11 +14,15 @@ class Signup extends Component {
         <p>
           sign up
       </p>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <p>username</p>
           <input onChange={this.handleUsername}></input>
+          <p>your name</p>
+          <input onChange={this.handleName}></input>
+
+          <p>avatar</p>
           <br />
-          <button type='submit' onClick={this.handleSubmit}>sgn up</button>
+          <button type='submit'>sign up</button>
         </form>
       </div>
     );
@@ -26,9 +32,17 @@ class Signup extends Component {
     this.setState({ username: e.target.value })
   }
 
+  handleName = e => {
+    this.setState({ name: e.target.value })
+  }
+
   handleSubmit = e => {
-    const { username } = this.state
-    postUser(username)
+    e.preventDefault()
+    const newuser = this.state
+    postUser(newuser)
+      .then(user => {
+        this.setState({})
+      })
 
   }
 

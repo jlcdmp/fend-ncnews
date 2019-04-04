@@ -11,7 +11,7 @@ class Commentsection extends Component {
 
   render() {
     return (
-      this.props.comments.map(comment => <Singlecomment comment={comment} />)
+      this.props.comments.map(comment => <Singlecomment comment={comment} user={this.props.user} />)
     )
   }
 }

@@ -59,9 +59,25 @@ export const voteOnComment = async (comment_id, numOfVotes) => {
   return data.comment
 }
 
-export const postUser = async (username) => {
-  const { data } = await axios.post(`${BASEURL}/users`, username)
+export const postUser = async (newuser) => {
+  const { data } = await axios.post(`${BASEURL}users`, newuser)
   navigate('/home')
     .catch(err => err)
-  return data.username
+  return data.newUser
+}
+
+
+export const deleteArticle = async (article_id) => {
+  const { data } = await axios.delete(`${BASEURL}articles/${article_id}`)
+  navigate('/articles')
+    .catch(err => err)
+  return data
+}
+
+
+export const deleteComment = async (comment_id) => {
+  const { data } = await axios.delete(`${BASEURL}comments/${comment_id}`)
+  navigate(`/articles`)
+    .catch(err => err)
+  return data
 }

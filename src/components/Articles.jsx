@@ -48,7 +48,7 @@ class Articles extends Component {
           <Link to='/newarticle'>Post</Link>
         </header>
 
-        <Articlelist articles={this.state.articles} />
+        <Articlelist articles={this.state.articles} user={this.props.user.user.username} />
       </div >
     )
 

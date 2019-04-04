@@ -22,7 +22,6 @@ class Article extends Component {
   }
 
 
-
   render() {
     const { voteChange } = this.state
     return (
@@ -36,18 +35,14 @@ class Article extends Component {
         <p> Posted:{moment(this.state.article.created_at).fromNow()} </p>
         <p className='articleBody'>{this.state.article.body}</p>
         <p>votes {voteChange}</p>
-
-
         <button type='button' onClick={() => this.handleVoteClick(1)}  >
           <span role="img" aria-label="Thumbs-up" > 👍</span>
         </button>
-
         <button type='button' onClick={() => this.handleVoteClick(-1)}  >
           <span role="img" aria-label="Thumbs-down" > 👎</span>
         </button>
-
         <p onClick={this.handleCommentClick}>view comments</p>
-        {this.state.isHidden ? null : <Comments article_id={this.props.article_id} user={this.props.user.username} className='commentsection' />}
+        {this.state.isHidden ? null : <Comments article_id={this.props.article_id} user={this.props.user.user.username} className='commentsection' />}
         <br />
       </article >
     );
