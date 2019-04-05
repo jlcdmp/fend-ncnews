@@ -19,10 +19,15 @@ class Articles extends Component {
 
 
 
-  async componentDidUpdate() {
-    const search = this.state.topic
-    const articles = await fetchArticles(search)
-    this.setState({ articles: articles })
+  async componentDidUpdate(_, prevState) {
+
+    if (this.state.topic !== prevState.topic) {
+
+      const search = this.state.topic
+      const articles = await fetchArticles(search)
+      this.setState({ articles: articles })
+
+    }
   }
 
 
