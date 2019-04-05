@@ -44,7 +44,7 @@ class Singlecomment extends Component {
 
   handleDelete = e => {
     const comment_id = this.props.comment.comment_id
-    console.log(comment_id)
+    window.confirm('Are you sure you want to delete this comment?')
     deleteComment(comment_id).then(alert('comment deleted'))
   }
 

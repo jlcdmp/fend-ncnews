@@ -24,16 +24,8 @@ class ArticleForm extends Component {
           <textarea rows='15' cols='50' onChange={this.handleText} required ></textarea>
           <br />
           <p>topic</p>
-
-          {/* <select onClick={this.handleTopic}>
-            <option>football</option>
-            <option>coding</option>
-            <option>cooking</option>
-          </select> */}
-
           <input onChange={this.handleTopic} required ></input>
           <br />
-
           <button type='submit' onSubmit={this.handleSubmit}>post</button>
         </form>
       </div>

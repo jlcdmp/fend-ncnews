@@ -37,7 +37,7 @@ class Singlearticle extends Component {
 
   handleDelete = e => {
     const article_id = this.props.article.article_id
-    console.log(article_id)
+    window.confirm('Are you sure you want to delete this article?')
     deleteArticle(article_id).then(alert('article delted'))
 
   }
