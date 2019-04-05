@@ -34,6 +34,9 @@ class Article extends Component {
         </Link>
         <p> Posted:{moment(this.state.article.created_at).fromNow()} </p>
         <p className='articleBody'>{this.state.article.body}</p>
+
+        {voteChange > 10 ? <span>🔥</span> : null}
+
         <p>votes {voteChange}</p>
         <button type='button' onClick={() => this.handleVoteClick(1)}  >
           <span role="img" aria-label="Thumbs-up" > 👍</span>

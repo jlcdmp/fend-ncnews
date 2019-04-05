@@ -9,6 +9,11 @@ class Singlearticle extends Component {
   }
 
   render() {
+    const newchecker = ['hours', 'seconds', 'minute', 'minutes', 'days', 'day']
+
+
+    const regex = /(days|day|hours|hour|seconds|second)/
+
     return (
       <li className='articleitemblock' key={this.props.article.article_id}>
         {moment(this.props.article.created_at).fromNow().includes('hours') === true && this.props.article.votes > 5 ? <span role='img' aria-label="Bolt" >⚡</span> : null}
@@ -17,7 +22,10 @@ class Singlearticle extends Component {
 
         by {this.props.article.author}
         {moment(this.props.article.created_at).fromNow()}
-        {moment(this.props.article.created_at).fromNow().includes('hours', 'seconds', 'minute', 'minutes') === true ? <span role="img" aria-label="New" >🆕</span> : null}
+
+        {regex.test(moment(this.props.article.created_at).fromNow()) === true ? <span role="img" aria-label="New" >🆕</span> : null}
+
+
         <br />
         votes {this.props.article.votes}
         {this.props.article.votes > 9 ? <span role="img" aria-label="Fire" >🔥</span> : null}
