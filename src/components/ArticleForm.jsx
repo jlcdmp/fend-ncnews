@@ -17,11 +17,11 @@ class ArticleForm extends Component {
       <div>
         <Navbar />
         <p>post new article</p>
-        <form>
+        <form onSubmit={this.handleSubmit} >
           <p>title</p>
-          <input onChange={this.handleInput}></input>
+          <input onChange={this.handleInput} required ></input>
           <p>body</p>
-          <textarea rows='15' cols='50' onChange={this.handleText}></textarea>
+          <textarea rows='15' cols='50' onChange={this.handleText} required ></textarea>
           <br />
           <p>topic</p>
 
@@ -31,10 +31,10 @@ class ArticleForm extends Component {
             <option>cooking</option>
           </select> */}
 
-          <input onChange={this.handleTopic} ></input>
+          <input onChange={this.handleTopic} required ></input>
           <br />
 
-          <button type='submit' onClick={this.handleSubmit}>post</button>
+          <button type='submit' onSubmit={this.handleSubmit}>post</button>
         </form>
       </div>
 

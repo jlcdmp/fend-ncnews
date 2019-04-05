@@ -33,6 +33,7 @@ class Articles extends Component {
         <Navbar />
         <header className='topbar'>
           <p>sort</p>
+
           <select onChange={this.handleSort}>
             <option></option>
             <option>newest</option>
@@ -40,7 +41,6 @@ class Articles extends Component {
             <option>most votes</option>
             <option>least votes</option>
             <option>most discussed</option>
-            <option>random</option>
           </select >
 
           <p>topics</p>
