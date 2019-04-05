@@ -20,13 +20,16 @@ class Singlecomment extends Component {
     const { voteChange } = this.state
     return (
       <ul key={`${comment.comment_id}`} className='commentList'>
-        <li className='commentAuthor'>{comment.author}</li>
-        <li className='commentPosted' >{moment(comment.created_at).fromNow()}</li>
+
+
+
         {this.props.user === comment.author ?
           <button onClick={this.handleDelete} >
             <span role='img' aria-label='trash'>🗑</span>
           </button> : null}
         <li className='commentBody' > {comment.body} </li>
+        <li className='commentAuthor'>{comment.author}</li>
+        <li className='commentPosted' >{moment(comment.created_at).fromNow()}</li>
         {comment.votes > 8 ? <span role="img" aria-label="Fire" >🔥</span> : null}
         {comment.votes < 0 ? <span role="img" aria-label="Poop" >💩</span> : null}
         <li className='votes' >{voteChange}</li>

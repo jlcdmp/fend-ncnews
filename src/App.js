@@ -51,7 +51,6 @@ class App extends Component {
     } else {
       return (
         <div className="App">
-          <h3 className='title'>nc news</h3>
           <Router>
             <Home path='/home' user={this.state.user} />
             <Articles path='/articles' user={this.state.user} />

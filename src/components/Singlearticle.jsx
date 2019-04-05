@@ -21,6 +21,7 @@ class Singlearticle extends Component {
         <Link className='articleitem' data={this.props.articles.articles} to={`/articles/${this.props.article.article_id}`}>{this.props.article.title}</Link >
 
         by {this.props.article.author}
+        <br />
         {moment(this.props.article.created_at).fromNow()}
 
         {regex.test(moment(this.props.article.created_at).fromNow()) === true ? <span role="img" aria-label="New" >🆕</span> : null}
