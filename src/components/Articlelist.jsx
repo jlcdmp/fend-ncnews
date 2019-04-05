@@ -1,7 +1,5 @@
-import { Link } from '@reach/router'
 import React from 'react';
 import Singlearticle from './Singlearticle';
-const moment = require('moment')
 
 
 const Articlelist = (props) => {

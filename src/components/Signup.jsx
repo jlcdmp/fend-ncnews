@@ -19,8 +19,6 @@ class Signup extends Component {
           <input onChange={this.handleUsername}></input>
           <p>your name</p>
           <input onChange={this.handleName}></input>
-
-          <p>avatar</p>
           <br />
           <button type='submit'>sign up</button>
         </form>

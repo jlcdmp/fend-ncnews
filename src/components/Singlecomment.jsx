@@ -13,6 +13,8 @@ class Singlecomment extends Component {
     this.setState({ voteChange: this.props.comment.votes })
   }
 
+
+
   render() {
     const { comment } = this.props
     const { voteChange } = this.state
