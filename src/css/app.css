@@ -1,0 +1,24 @@
+.fave{
+  list-style: none;
+  text-decoration: none!important;
+  background-color: whitesmoke;
+  color:black;
+  padding:5px;
+}
+
+
+.faveList{
+margin:0;
+padding:0;
+max-height: 270px;
+overflow:scroll
+}
+
+.homehead{
+background-color: whitesmoke
+}
+
+.userpic{
+  border: 1px solid;
+  border-radius: 2px
+}

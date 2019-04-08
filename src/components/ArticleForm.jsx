@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from '@reach/router'
 import { postArticle } from './api';
 import Navbar from './Navbar';
 
@@ -16,15 +17,15 @@ class ArticleForm extends Component {
     return (
       <div>
         <Navbar />
-        <p>post new article</p>
+        <h2>post new article</h2>
+        <h6>
+          Please provide a title and body, limited to 500 words. Add to an exisiting topic or create your own <Link to='/topics'>here</Link>
+        </h6>
         <form onSubmit={this.handleSubmit} >
-          <p>title</p>
-          <input onChange={this.handleInput} name='title' required ></input>
-          <p>body</p>
-          <textarea rows='15' cols='50' onChange={this.handleText} name='body' required ></textarea>
+          <input onChange={this.handleInput} name='title' required placeholder='title'></input>
+          <textarea rows='15' cols='50' onChange={this.handleText} name='body' required placeholder='your article'></textarea>
           <br />
-          <p>topic</p>
-          <input onChange={this.handleTopic} name='topic' required ></input>
+          <input onChange={this.handleTopic} name='topic' required placeholder='topic'></input>
           <br />
           <button type='submit' onSubmit={this.handleSubmit}>post</button>
         </form>

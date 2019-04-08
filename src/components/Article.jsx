@@ -29,7 +29,7 @@ class Article extends Component {
 
       < article className='article' >
 
-        <Link to='/articles'>Back</Link>
+        <Link to='/articles'><button>🔙</button></Link>
 
         <p>{this.state.article.title}</p >
 
@@ -45,7 +45,7 @@ class Article extends Component {
 
         {voteChange > 10 ? <span>🔥</span> : null}
 
-        <p>votes {voteChange}</p>
+        <label>{voteChange}</label>
         <button type='button' onClick={() => this.handleVoteClick(1)}  >
           <span role="img" aria-label="Thumbs-up" > 👍</span>
         </button>
@@ -54,7 +54,7 @@ class Article extends Component {
         </button>
 
         <button type='button' onClick={() => this.props.save(this.state.article)} >
-          <span role="img" aria-label="Star" >⭐</span>
+          <span role="img" aria-label="Star" >📎</span>
         </button>
 
 

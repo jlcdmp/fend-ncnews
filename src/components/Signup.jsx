@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { postUser } from './api';
+import { navigate } from '@reach/router';
 
 class Signup extends Component {
   state = {
@@ -12,12 +13,14 @@ class Signup extends Component {
     return (
       <div>
         <p>
-          sign up
+          sign up today!
+
+
       </p>
         <form onSubmit={this.handleSubmit}>
-          <p>username</p>
+          <label>username</label>
           <input onChange={this.handleUsername}></input>
-          <p>your name</p>
+          <label>full name</label>
           <input onChange={this.handleName}></input>
           <br />
           <button type='submit'>sign up</button>
@@ -40,7 +43,12 @@ class Signup extends Component {
     postUser(newuser)
       .then(user => {
         this.setState({})
+        navigate('/home')
       })
+      .catch(err => {
+        window.confirm('Username taken')
+      })
+    e.target.reset()
 
   }
 

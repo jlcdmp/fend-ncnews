@@ -6,7 +6,6 @@ import Commentsform from './Commentsform';
 class Comment extends Component {
   state = {
     comments: [],
-    isHidden: true,
   }
 
 

@@ -6,13 +6,14 @@ const moment = require('moment')
 
 class Singlearticle extends Component {
   state = {
+    showMenu: false
   }
 
   render() {
     const regex = /(days|day|hours|hour|seconds|second)/
     return (
       <li className='articleitemblock' key={this.props.article.article_id}>
-        {moment(this.props.article.created_at).fromNow().includes('hours') === true && this.props.article.votes > 5 ? <span role='img' aria-label="Bolt" >⚡</span> : null}
+        {regex.test(moment(this.props.article.created_at).fromNow()) === true && this.props.article.votes > 5 ? <span role='img' aria-label="Bolt" style={{ 'font-size': '22px' }}>⚡</span> : null}
 
         <Link className='articleitem' data={this.props.articles.articles} to={`/articles/${this.props.article.article_id}`}>{this.props.article.title}</Link >
 
@@ -20,19 +21,28 @@ class Singlearticle extends Component {
         <br />
         {moment(this.props.article.created_at).fromNow()}
 
-        {regex.test(moment(this.props.article.created_at).fromNow()) === true ? <span role="img" aria-label="New" >🆕</span> : null}
+        {regex.test(moment(this.props.article.created_at).fromNow()) === true ? <span role="img" aria-label="New" style={{ 'font-size': '20px' }} >🆕</span> : null}
+
 
         <br />
-        votes {this.props.article.votes}
-        {this.props.article.votes > 9 ? <span role="img" aria-label="Fire" >🔥</span> : null}
+        <lable>votes </lable>
+        {this.props.article.votes > 9 ? <span role="img" aria-label="Fire" style={{ 'font-size': '24px' }} >🔥</span> : null}
+        {this.props.article.votes}
         {"  "}
-        comments {this.props.article.comment_count}
-        {this.props.article.comment_count > 10 ? <span role="img" aria-label="Mouth"  >👄</span> : null}
+        <lable>comments </lable>
+        {this.props.article.comment_count > 10 ? <span role="img" aria-label="Mouth" style={{ 'font-size': '22px' }} >👄</span> : null}
+        {this.props.article.comment_count}
+
+
 
 
 
         {this.props.article.author === this.props.user ? <button onClick={this.handleDelete} >
-          <span role='img' aria-label='trash'>🗑</span> </button> : null}
+          <span role='img' aria-label='trash' style={{ 'font-size': '19px' }} > Delete 🗑</span> </button> : null}
+
+
+
+
       </li >
     );
   }
@@ -45,7 +55,18 @@ class Singlearticle extends Component {
       navigate('/articles')
     }
   }
+
+
+
+  handleMenue = e => {
+    e.preventDefault()
+    this.setState({ showMenu: !this.state.showMenu })
+  }
+
 }
+
+
+
 
 export default Singlearticle;
 

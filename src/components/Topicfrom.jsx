@@ -14,12 +14,10 @@ class Topicform extends Component {
       <div>
         <Navbar />
         <p> start a new topic</p>
-
+        <p>Please provide a your topic with a suitbale name and short description</p>
         <form>
-          <p>slug</p>
-          <input onChange={this.handleSlug}></input>
-          <p>description</p>
-          <input onChange={this.handleDescription}></input>
+          <input onChange={this.handleSlug} placeholder='topic name' ></input>
+          <input onChange={this.handleDescription} placeholder='topic description' ></input>
           <br />
           <button type='submit' onClick={this.handleSubmit} >add topic</button>
         </form>

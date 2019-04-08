@@ -7,6 +7,7 @@ import ArticleForm from './components/ArticleForm'
 import { fetchUser } from './components/api';
 import Home from './components/Home'
 import { postUser } from './components/api';
+import Signup from './components/Signup';
 
 
 class App extends Component {
@@ -27,26 +28,21 @@ class App extends Component {
     if (this.state.user === null) {
       return (
         <div>
-          <p>login</p>
+          <p>Please sign in</p>
           <form onSubmit={this.handleLoginSubmit} >
-            <p>username</p>
-            <input onChange={this.handleLoginUsername} required ></input>
+            <label></label>
+            <input onChange={this.handleLoginUsername} required placeholder='username'></input>
             <br />
-            <button type='submit'  >login</button>
+            <button type='submit'  >sign in</button>
           </form>
           <br />
-          <p>not got a account?</p>
-          <button>create account</button>
 
-          <p>sign up</p>
-          <form onSubmit={this.handleSignupSubmit}>
-            <p>username</p>
-            <input onChange={this.handleUsername}></input>
-            <p>your name</p>
-            <input onChange={this.handleName}></input>
-            <br />
-            <button type='submit'>sign up</button>
-          </form>
+          <Link to='/signup'>not got a account?</Link>
+
+
+          <Router>
+            <Signup path='/signup' />
+          </Router>
         </div>
       )
 
@@ -59,9 +55,7 @@ class App extends Component {
           <Router>
             <Home path='/home' user={this.state.user} pinned={this.state.pinnedArt} />
             <Articles path='/articles' user={this.state.user} />
-
             <Article path='/articles/:article_id' user={this.state.user} save={this.handleSave} />
-
             <Topics path='/topics' />
             <ArticleForm path='/newarticle' user={this.state.user} />
           </Router>
@@ -108,14 +102,16 @@ class App extends Component {
 
 
   handleSave = (article) => {
-
-
     this.setState({ pinnedArt: [...this.state.pinnedArt, article] })
-
     window.alert('saved to favourites')
-
   }
 
+
+  handleClick = e => {
+    this.setState({
+      isHidden: !this.state.isHidden
+    })
+  }
 }
 
 

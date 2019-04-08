@@ -21,6 +21,7 @@ class Topics extends Component {
     })
     return (
       <div>
+        <p>Current topics</p>
         <ul>{eachtopic}</ul>
         <Topicform />
       </div>

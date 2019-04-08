@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { postComment } from './api'
+import { navigate } from '@reach/router/lib/history';
 
 class Commentsform extends Component {
   state = {
@@ -13,7 +14,7 @@ class Commentsform extends Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit} >
-          <textarea rows='4' cols='57' onChange={this.handleBody}></textarea>
+          <textarea rows='4' cols='57' onChange={this.handleBody} placeholder='your comment'></textarea>
           <button type='submit' >comment</button>
         </form>
       </div>
@@ -23,8 +24,13 @@ class Commentsform extends Component {
     e.preventDefault()
     const { article_id } = this.props
     const comment = { body: this.state.body, author: this.state.author }
-    postComment(comment, article_id)
-    e.target.reset()
+    postComment(comment, article_id).then(comment => {
+      // navigate(`/articles/${comment.article_id}`)
+      e.target.reset()
+    })
+      .catch(err => {
+        return err
+      })
   }
 
 
