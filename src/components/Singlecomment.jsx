@@ -27,6 +27,7 @@ class Singlecomment extends Component {
           <button onClick={this.handleDelete} >
             <span role='img' aria-label='trash'>🗑</span>
           </button> : null}
+          
         <li className='commentBody' > {comment.body} </li>
         <li className='commentAuthor'>{comment.author}</li>
         <li className='commentPosted' >{moment(comment.created_at).fromNow()}</li>

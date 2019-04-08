@@ -19,12 +19,12 @@ class ArticleForm extends Component {
         <p>post new article</p>
         <form onSubmit={this.handleSubmit} >
           <p>title</p>
-          <input onChange={this.handleInput} required ></input>
+          <input onChange={this.handleInput} name='title' required ></input>
           <p>body</p>
-          <textarea rows='15' cols='50' onChange={this.handleText} required ></textarea>
+          <textarea rows='15' cols='50' onChange={this.handleText} name='body' required ></textarea>
           <br />
           <p>topic</p>
-          <input onChange={this.handleTopic} required ></input>
+          <input onChange={this.handleTopic} name='topic' required ></input>
           <br />
           <button type='submit' onSubmit={this.handleSubmit}>post</button>
         </form>
@@ -33,9 +33,14 @@ class ArticleForm extends Component {
     );
   }
 
+
+
   handleTopic = e => {
     this.setState({ topic: e.target.value })
   }
+
+
+
 
 
 
@@ -47,10 +52,16 @@ class ArticleForm extends Component {
     this.setState({ body: e.target.value })
   }
 
+
+
+
+
+
   handleSubmit = e => {
     e.preventDefault()
     const article = this.state
     postArticle(article)
+
   }
 
 

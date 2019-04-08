@@ -4,7 +4,7 @@ import Singlearticle from './Singlearticle';
 
 const Articlelist = (props) => {
   return (
-    props.articles.map(article => <Singlearticle article={article} articles={props.articles} user={props.user} />)
+    props.articles.map(article => <Singlearticle article={article} articles={props.articles} user={props.user} save={props.save} />)
   )
 }
 

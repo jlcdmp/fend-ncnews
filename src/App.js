@@ -15,8 +15,13 @@ class App extends Component {
     username: '',
     signupuser: '',
     name: '',
-    avatar_url: 'https://tinyurl.com/yytdvy33'
+    avatar_url: 'https://tinyurl.com/yytdvy33',
+    pinnedArt: [],
+    isHidden: true
   }
+
+
+
 
   render() {
     if (this.state.user === null) {
@@ -31,7 +36,7 @@ class App extends Component {
           </form>
           <br />
           <p>not got a account?</p>
-          <Link to='/signup'><button>create account</button></Link>
+          <button>create account</button>
 
           <p>sign up</p>
           <form onSubmit={this.handleSignupSubmit}>
@@ -52,9 +57,11 @@ class App extends Component {
       return (
         <div className="App">
           <Router>
-            <Home path='/home' user={this.state.user} />
+            <Home path='/home' user={this.state.user} pinned={this.state.pinnedArt} />
             <Articles path='/articles' user={this.state.user} />
-            <Article path='/articles/:article_id' user={this.state.user} />
+
+            <Article path='/articles/:article_id' user={this.state.user} save={this.handleSave} />
+
             <Topics path='/topics' />
             <ArticleForm path='/newarticle' user={this.state.user} />
           </Router>
@@ -99,6 +106,15 @@ class App extends Component {
   }
 
 
+
+  handleSave = (article) => {
+
+
+    this.setState({ pinnedArt: [...this.state.pinnedArt, article] })
+
+    window.alert('saved to favourites')
+
+  }
 
 }
 
