@@ -13,6 +13,9 @@ const Navbar = (props) => {
       {"    "}
 
       <Link to='/newarticle' className='navlink'>post</Link>
+      {"    "}
+
+      <Link to='/' className='navlink'>Log-out</Link>
     </nav>
   );
 }
