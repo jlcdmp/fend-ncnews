@@ -5,7 +5,6 @@ import { navigate } from '@reach/router/lib/history';
 class Commentsform extends Component {
   state = {
     body: '',
-    author: this.props.user
   }
 
 
@@ -23,7 +22,8 @@ class Commentsform extends Component {
   handleSubmit = e => {
     e.preventDefault()
     const { article_id } = this.props
-    const comment = { body: this.state.body, author: this.state.author }
+    console.log(this.props.user, '<<<')
+    const comment = { body: this.state.body, author: this.props.user }
     postComment(comment, article_id).then(comment => {
       // navigate(`/articles/${comment.article_id}`)
       e.target.reset()

@@ -33,7 +33,7 @@ class Home extends Component {
         </ul>
 
         <h5>Your articles</h5>
-        <ul>
+        <ul className='faveList' >
           {this.state.userArts.map(article => {
             return <Link to={`/articles/${article.article_id}`}>
               <li className='fave' >{article.title}</li>

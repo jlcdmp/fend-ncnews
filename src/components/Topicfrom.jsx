@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { postTopic } from './api'
+import { navigate } from '@reach/router'
 import Navbar from './Navbar';
 
 class Topicform extends Component {
@@ -36,7 +37,9 @@ class Topicform extends Component {
   handleSubmit = e => {
     e.preventDefault()
     const topic = this.state
-    postTopic(topic)
+    postTopic(topic).then(topic => {
+      navigate(`/topics`)
+    })
   }
 
 }

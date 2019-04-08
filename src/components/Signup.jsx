@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { postUser } from './api';
 import { navigate } from '@reach/router';
+import '../css/app.css'
+
 
 class Signup extends Component {
   state = {
@@ -11,13 +13,11 @@ class Signup extends Component {
 
   render() {
     return (
-      <div>
-        <p>
+      <div >
+        <h4>
           sign up today!
-
-
-      </p>
-        <form onSubmit={this.handleSubmit}>
+      </h4>
+        <form onSubmit={this.handleSubmit} >
           <label>username</label>
           <input onChange={this.handleUsername}></input>
           <label>full name</label>

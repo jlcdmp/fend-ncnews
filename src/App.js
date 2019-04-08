@@ -27,23 +27,25 @@ class App extends Component {
   render() {
     if (this.state.user === null) {
       return (
-        <div>
-          <p>Please sign in</p>
-          <form onSubmit={this.handleLoginSubmit} >
-            <label></label>
-            <input onChange={this.handleLoginUsername} required placeholder='username'></input>
+        <div className='login'>
+          <div className='logincentre'>
+            <p>Please sign in</p>
+            <form onSubmit={this.handleLoginSubmit} >
+              <label></label>
+              <input onChange={this.handleLoginUsername} required placeholder='username'></input>
+              <br />
+              <button type='submit'  >sign in</button>
+            </form>
+          </div>
+          <>
             <br />
-            <button type='submit'  >sign in</button>
-          </form>
-          <br />
-
-          <Link to='/signup'>not got a account?</Link>
-
-
-          <Router>
-            <Signup path='/signup' />
-          </Router>
+            <Link to='/signup'>Register</Link>
+            <Router>
+              <Signup path='/signup' />
+            </Router>
+          </>
         </div>
+
       )
 
 
@@ -112,6 +114,7 @@ class App extends Component {
       isHidden: !this.state.isHidden
     })
   }
+
 }
 
 

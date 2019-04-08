@@ -25,14 +25,12 @@ export const fetchUser = async (username) => {
 
 export const postTopic = async (topic) => {
   const { data } = await axios.post(`${BASEURL}/topics`, topic)
-  navigate(`/topics`)
   return data.topic
 }
 
 export const postArticle = async (article) => {
-  const { data } = await axios.post(`${BASEURL}/articles`, article)
-  navigate(`/articles/${data.newArticle.article_id}`)
-  return data.article
+  const { data } = await axios.post(`${BASEURL}articles`, article)
+  return data.newArticle
 }
 
 export const postComment = async (comment, article_id) => {

@@ -49,6 +49,7 @@ class Articles extends Component {
   handleChange = e => {
     this.setState({ topic: `?topic=${e.target.value}` })
   }
+
   handleSort = e => {
     this.setState({ sort: `?sortby=${e.target.value}` })
   }
