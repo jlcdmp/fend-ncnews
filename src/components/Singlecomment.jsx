@@ -1,28 +1,20 @@
 import React, { Component } from 'react';
 import { voteOnComment } from './api'
-import { deleteComment } from './api'
 const moment = require('moment')
 
 class Singlecomment extends Component {
   state = {
     voteChange: 0
   }
-
-
   componentDidMount() {
     this.setState({ voteChange: this.props.comment.votes })
   }
-
-
 
   render() {
     const { comment } = this.props
     const { voteChange } = this.state
     return (
       <ul key={`${comment.comment_id}`} className='commentList'>
-
-
-
         <li className='commentBody' > {comment.body} </li>
         <li className='commentAuthor'>{comment.author}</li>
         <li className='commentPosted' >{moment(comment.created_at).fromNow()}</li>
@@ -42,20 +34,13 @@ class Singlecomment extends Component {
         </button>
 
         {this.props.user === comment.author ?
-          <button onClick={this.handleDelete} >
+          <button onClick={() => this.props.delete(comment.comment_id)} >
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M9 19c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm4 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm4 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5-17v2h-20v-2h5.711c.9 0 1.631-1.099 1.631-2h5.315c0 .901.73 2 1.631 2h5.712zm-3 4v16h-14v-16h-2v18h18v-18h-2z" /></svg>
           </button> : null}
       </ul>
     );
   }
 
-
-
-  handleDelete = e => {
-    const comment_id = this.props.comment.comment_id
-    window.confirm('Are you sure you want to delete this comment?')
-    deleteComment(comment_id).then(alert('comment deleted'))
-  }
 
   handleVoteClick = numOfVotes => {
     const { comment } = this.props
