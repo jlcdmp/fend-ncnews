@@ -18,11 +18,7 @@ class Comment extends Component {
   render() {
     return (
       <>
-        <select>
-          <option>newest</option>
-          <option>most likes</option>
-          <option>most dislikes</option>
-        </select>
+
         <Commentsform article_id={this.props.article_id} user={this.props.user} />
 
         <Commentsection comments={this.state.comments} user={this.props.user} />

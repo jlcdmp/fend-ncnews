@@ -1,59 +1,35 @@
 import React, { Component } from 'react';
-import { postUser } from './api';
-import { navigate } from '@reach/router';
 import '../css/app.css'
-
-
 class Signup extends Component {
   state = {
     username: '',
     name: '',
-    avatar_url: 'https://tinyurl.com/yytdvy33'
+    avatar_url: 'https://images-na.ssl-images-amazon.com/images/I/61XFz3GxbYL._SY355_.jpg'
   }
-
   render() {
+    const newuser = { username: this.state.username, name: this.state.name, avatar_url: this.state.avatar_url }
     return (
       <div >
         <h4>
           sign up today!
       </h4>
-        <form onSubmit={this.handleSubmit} >
+        <form onSubmit={() => this.props.sign(newuser)} >
           <label>username</label>
-          <input onChange={this.handleUsername}></input>
+          <input onChange={this.handleChange} name='username' ></input>
+          <br />
           <label>full name</label>
-          <input onChange={this.handleName}></input>
+          <input onChange={this.handleChange} name='name' ></input>
           <br />
           <button type='submit'>sign up</button>
         </form>
       </div>
     );
   }
-
-  handleUsername = e => {
-    this.setState({ username: e.target.value })
+  handleChange = (event) => {
+    const key = event.target.name
+    const value = event.target.value
+    this.setState({ [key]: value })
   }
-
-  handleName = e => {
-    this.setState({ name: e.target.value })
-  }
-
-  handleSubmit = e => {
-    e.preventDefault()
-    const newuser = this.state
-    postUser(newuser)
-      .then(user => {
-        this.setState({})
-        navigate('/home')
-      })
-      .catch(err => {
-        window.confirm('Username taken')
-      })
-    e.target.reset()
-
-  }
-
-
-
 }
 
 export default Signup;

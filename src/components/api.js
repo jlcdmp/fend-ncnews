@@ -20,7 +20,7 @@ export const fetchComments = async (article_id) => {
 
 export const fetchUser = async (username) => {
   const { data } = await axios.get(`${BASEURL}users/${username}`)
-  return data
+  return data.user;
 }
 
 export const postTopic = async (topic) => {
@@ -35,7 +35,6 @@ export const postArticle = async (article) => {
 
 export const postComment = async (comment, article_id) => {
   const { data } = await axios.post(`${BASEURL}/articles/${article_id}/comments`, comment)
-  navigate(`/articles/${data.newComment.article_id}`)
   return data.newComment
 }
 
@@ -51,7 +50,6 @@ export const voteOnComment = async (comment_id, numOfVotes) => {
 
 export const postUser = async (newuser) => {
   const { data } = await axios.post(`${BASEURL}users`, newuser)
-  navigate('/home')
   return data.newUser
 }
 

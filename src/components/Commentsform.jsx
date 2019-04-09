@@ -13,7 +13,7 @@ class Commentsform extends Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit} >
-          <textarea rows='4' cols='57' onChange={this.handleBody} placeholder='your comment'></textarea>
+          <textarea rows='4' cols='57' onChange={this.handleChange} name='body' placeholder='your comment'></textarea>
           <button type='submit' >comment</button>
         </form>
       </div>
@@ -22,23 +22,24 @@ class Commentsform extends Component {
   handleSubmit = e => {
     e.preventDefault()
     const { article_id } = this.props
-    console.log(this.props.user, '<<<')
     const comment = { body: this.state.body, author: this.props.user }
     postComment(comment, article_id).then(comment => {
-      // navigate(`/articles/${comment.article_id}`)
-      e.target.reset()
+      navigate(`/articles/${comment.article_id}`)
     })
       .catch(err => {
-        return err
+        console.log(err)
       })
+    e.target.reset()
   }
 
 
-
-
-  handleBody = e => {
-    this.setState({ body: e.target.value })
+  handleChange = (event) => {
+    const key = event.target.name
+    const value = event.target.value
+    this.setState({ [key]: value })
   }
+
+
 
 
 }

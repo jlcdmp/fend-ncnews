@@ -42,7 +42,7 @@ class Articles extends Component {
           </select>
           <br />
         </header>
-        <Articlelist articles={this.state.articles} user={this.props.user.user.username} save={this.props.save} />
+        <Articlelist articles={this.state.articles} user={this.props.user.username} save={this.props.save} />
       </div >
     )
   }
