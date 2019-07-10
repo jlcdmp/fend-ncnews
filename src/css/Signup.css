@@ -1,0 +1,50 @@
+.form-store{
+  background-color: whitesmoke;
+   border-left:solid 1px #222222;
+      border-right:solid 1px #222222;
+         border-top:solid 1px #222222}
+
+.signup-form{
+  grid-area:3 4 5 / 2;
+  display:grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 5px;
+  color: #222222;
+  padding: 5px
+}
+
+.signup-p{
+  text-transform: uppercase;
+  font-size:100%;
+  font-weight:bold;
+  text-align: center;
+  margin:5px;
+  padding:5px;
+  color: #222222;
+
+}
+
+.signup-input{
+  text-transform: uppercase;
+  font-size: 100%;
+  font-weight: bold;
+  border:none;
+  text-align: center;
+    background-color: whitesmoke;
+border-bottom: 2px dotted grey;
+  }
+
+
+input ::placeholder{
+     color: #222222;
+}
+
+.signup-button{
+  text-transform: uppercase;
+   font-size: 100%;
+   font-weight: bold;
+   text-align: center;
+  background-color: whitesmoke;
+  border: none;
+}
+

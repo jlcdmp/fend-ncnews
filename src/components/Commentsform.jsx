@@ -1,24 +1,24 @@
 import React, { Component } from 'react';
 import { postComment } from './api'
 import { navigate } from '@reach/router/lib/history';
+import '../css/Comments.css'
 
 class Commentsform extends Component {
   state = {
     body: '',
   }
 
-
   render() {
-
     return (
-      <div>
-        <form onSubmit={this.handleSubmit} >
-          <textarea rows='4' cols='57' onChange={this.handleChange} name='body' placeholder='your comment'></textarea>
-          <button type='submit' >comment</button>
+      <div className='comment-form-store'>
+        <form className='comment-form' onSubmit={this.handleSubmit} >
+          <textarea onChange={this.handleChange} name='body' placeholder='Join the conversation'></textarea>
+          <button type='submit' >Comment</button>
         </form>
       </div>
     );
   }
+
   handleSubmit = e => {
     e.preventDefault()
     const { article_id } = this.props
@@ -31,17 +31,10 @@ class Commentsform extends Component {
       })
     e.target.reset()
   }
-
-
   handleChange = (event) => {
     const key = event.target.name
     const value = event.target.value
     this.setState({ [key]: value })
   }
-
-
-
-
 }
-
 export default Commentsform;

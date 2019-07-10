@@ -1,0 +1,95 @@
+*{
+  box-sizing: border-box;
+}
+
+.home{
+display: grid;
+grid-template-rows: 0.5fr 9.5fr;
+grid-template-columns: 1fr;
+}
+
+.header{
+padding:5px;
+grid-area: 1;
+display:flex;
+flex-direction: row-reverse;
+}
+
+
+.home-user-store{
+display: flex;
+flex-direction: row;
+border: solid 1px #222222;
+padding:5px;
+background-color: whitesmoke;
+margin: 0px 5px 0px 0px; 
+}
+
+
+.user-img{
+border: solid 1px #222222;
+display:block;
+margin:auto;
+}
+
+.user-name{
+  text-align: center;
+  margin: auto;
+  font-size: 70%;
+  padding:5px;
+  color: #222222
+}
+
+
+.home-store{
+  display:grid;
+  grid-template-columns: 0.5fr 9fr 0.5fr;
+  height:100vh;
+}
+
+
+
+
+
+
+.home-content{
+grid-area: 1/2;
+margin:5px;
+}
+
+
+
+
+.home-pinned-store{
+  border: solid 2px #222222;
+}
+
+
+
+
+.home-own-store{
+  border: solid 1px #222222;
+}
+
+.home-list{
+  list-style: none;
+  padding:5px;
+  margin:auto;
+}
+
+
+
+
+.home-list-item{
+padding:5px;
+margin:5px;
+border-bottom: dotted 1px;
+}
+
+.home-p{
+  padding:5px;
+  margin:0;
+  background-color: #222222;
+  text-transform: uppercase;
+  color: white
+}

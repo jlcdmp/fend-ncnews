@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<!-- saved from url=(0026)http://localhost:3000/home -->
+<html lang="en"><link type="text/css" id="dark-mode" rel="stylesheet" href="http://localhost:3000/home"><style type="text/css" id="dark-mode-custom-style"></style><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <link rel="shortcut icon" href="http://localhost:3000/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="http://localhost:3000/manifest.json">
+    <!--
+      Notice the use of  in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+  <style type="text/css">.allarticlelist{
+    list-style-type: none;
+  padding:7px;
+  margin:7px;
+  font-size: 10px;
+  max-height: 44em;
+}
+
+.articleitem{
+text-decoration: none;
+color:black;
+padding:1.5px;
+margin:1.5px;
+display:inline-block;
+background-color: whitesmoke
+}
+
+
+/* .navbar{
+  position:fixed;
+  bottom:0;
+background-color:whitesmoke;
+width:100%;
+}
+
+.navlink{
+  text-decoration: none;
+  color:black;
+  font-size: 25px
+} */
+
+.title{
+  padding:0;
+  margin:0;
+}
+
+.articleitemblock{
+  list-style-type:none;
+  background-color:gainsboro;
+  padding:5px;
+  margin: 5px;
+  display:flexbox
+}
+
+.topbar{
+  display:-webkit-flex;
+  display:flex;
+}
+
+
+
+.mouth{
+  position: inherit;
+  float:right;
+}</style><style type="text/css">.nav{
+display:grid;
+grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.navlink{
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  text-decoration: none;
+  text-align: center;
+  font-size: 100%;
+  width:100%;
+
+}</style><style type="text/css">.commentAuthor{
+  padding:0;
+  margin:0;
+font-size: 12px;
+
+}
+
+.commentBody{
+  padding:0;
+  margin:0;
+  font-size: 15px
+  
+}
+
+.commentVotes{
+  padding:0;
+  margin:0;
+    font-size: 8px
+
+
+}
+
+.commentPosted{
+  padding:0;
+  margin:0;
+font-size: 8px
+
+}
+
+.comment{
+  background-color:white;
+  padding:0;
+  margin:0;
+  display:flexbox;
+}
+
+
+.commentList{
+  list-style-type: none;
+  padding:2px;
+}
+
+.articleBody{
+  display:-webkit-flex;
+  display:flex;
+  text-align: justify;
+  background-color: white;
+  font-size: 15px;
+  padding:10px
+}
+
+.article{
+  background-color:whitesmoke
+}</style><style type="text/css">.page2{
+  display:grid;
+  grid-template-columns: 1fr 50fr 1fr;
+  grid-template-rows: 1fr 51fr;
+  background-color: teal
+}
+
+*{
+  box-sizing: border-box
+ 
+}
+
+.container{
+  grid-area: 2/2;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  background-color: goldenrod;
+}
+
+.userstore{
+background-color: red;
+grid-area:1/2;
+}
+
+.user{
+  background-color: yellowgreen
+
+}
+
+.userpic{
+background-color: black;
+}
+
+
+
+.nav{
+  background-color: orangered;
+}
+
+.content{
+background-color: gray;
+padding:10px
+}
+
+.fave{
+  background-color: peru;
+  padding:10px
+
+}
+
+.own{
+  background-color: palegreen;
+  padding:10px
+
+}
+
+
+.ownstore{
+  background-color: violet;
+  padding:10px
+
+}
+
+.ownstore li{
+
+}
+</style><style type="text/css">.page1{
+  width:100vw;
+  height:100vh;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr ;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 
+}
+
+.page1 .message{
+ margin: 15px 0 0;
+  color:#222222;
+  font-size: 12px
+}
+
+.section2{
+  background-color:rgb(65, 65, 65);
+   min-width: 30vw;
+  max-width: 55vw;
+  margin:10px;
+  padding:25px;
+}
+
+
+</style><style type="text/css">form.username{
+  background-color:#412cff;
+  width:100%;
+  padding:5px;
+display:grid;
+grid-template-columns: 1fr;
+grid-template-rows: 1fr 1fr;
+grid-row-gap: 5px;
+row-gap: 5px;
+}
+
+
+.login{
+  grid-area: 4/2;
+}
+
+
+.username input{
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  background: #412cff;
+  font-size: 100%;
+  color:white;
+  font-weight: bold;
+  text-align: center;
+  grid-area: 1/1;
+  padding:auto;
+  border:0
+}
+
+
+.username  ::-webkit-input-placeholder{
+  color:white
+}
+
+
+.username  ::-ms-input-placeholder{
+  color:white
+}
+
+
+.username  ::placeholder{
+  color:white
+}
+
+.username button{
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  background: #412cff;
+  color:white;
+  font-size: 100%;
+  text-align: center;
+  font-weight: bold;
+  grid-area: 2;
+  border:0
+
+}
+
+.username button:hover,.username button:active,.username button:focus {
+  color: #412cff
+}
+
+</style></head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"><div class="page1"><div class="login"><form class="username"><input class="input" name="username" required="" placeholder="username"><button class="button" type="submit">enter</button></form></div></div></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  <script src="./React App_files/bundle.js"></script><script src="./React App_files/0.chunk.js"></script><script src="./React App_files/main.chunk.js"></script><script src="./React App_files/main.69d92ddce2694ed7809e.hot-update.js"></script>
+
+</body></html>

@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { navigate } from '@reach/router'
 
 const BASEURL = 'https://joes-nc-news.herokuapp.com/api/'
 
@@ -56,7 +55,6 @@ export const postUser = async (newuser) => {
 
 export const deleteArticle = async (article_id) => {
   const { data } = await axios.delete(`${BASEURL}articles/${article_id}`)
-  navigate('/articles')
   return data
 }
 

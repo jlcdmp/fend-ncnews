@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from '@reach/router'
 import Topicform from './Topicfrom';
+import Navbar from './Navbar';
+import '../css/Topics.css'
 
 class Topics extends Component {
   state = {
     topics: []
   }
-
   componentDidMount() {
     axios.get('https://joes-nc-news.herokuapp.com/api/topics')
       .then((topics) => {
@@ -17,23 +18,28 @@ class Topics extends Component {
   render() {
     const { topics } = this.state
     const eachtopic = topics.map(topic => {
-      return <li key={topic.slug}><Link to={`/articles?topic=${topic.slug}`} >{topic.slug}</Link></li>
+      return <li key={topic.slug}><Link to={`/articles?topic=${topic.slug}`} >#{topic.slug}</Link></li>
     })
     return (
-      <div>
-        <p>Current topics</p>
-        <ul>{eachtopic}</ul>
-        <Topicform />
+      <div className='topics'>
+        <Navbar classname='nav' />
+        <div className="topic-page-store" >
+          <div className="topic-content" >
+            <div className='topic-prompt' >
+              <p className='topic-p'>Topics are the fundemantal back bone of the site, Got somthing you want to talk about? Create a new topic and begin the conversation today!</p>
+              <p className='topic-p'>Please provide a your topic with a suitable name and short description</p>
+            </div>
+            <div className='topic-content-store' >
+              <div className='topic-list-store'>
+                <p className="current-topics">Current topics...</p>
+                <ul className="topic-list">{eachtopic}</ul>
+              </div>
+              <Topicform className='topic-form' />
+            </div>
+          </div>
+        </div>
       </div>
-
     );
   }
-
-
-
-
-
-
 }
-
 export default Topics;

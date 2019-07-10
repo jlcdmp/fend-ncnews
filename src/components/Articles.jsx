@@ -26,29 +26,40 @@ class Articles extends Component {
 
   render() {
     return (
-      < div >
-        <Navbar />
-        <header className='topbar'>
-          <p>sort</p>
-          <select onChange={this.handleSort}>
-            <option></option>
-            <option>newest</option>
-            <option>oldest</option>
-            <option>most votes</option>
-            <option>least votes</option>
-            <option>most discussed</option>
-          </select >
-          <p>topics</p>
-          <select onChange={this.handleChange} >
-            <option></option>
-            <option>coding</option>
-            <option>cooking</option>
-            <option>football</option>
-          </select>
-          <br />
-        </header>
-        <Articlelist articles={this.state.articles} user={this.props.user.username} save={this.props.save} delete={this.handleDelete} />
-      </div >
+      <div className='articles'>
+
+        <Navbar className='nav' />
+
+        <div className="articles-store">
+
+          <div className="content-store">
+
+            <div className='filter-store'>
+              <p className="sort-options">sort by</p>
+              <select className='select' onChange={this.handleSort}>
+                <option></option>
+                <option className="option">newest</option>
+                <option className="option" >oldest</option>
+                <option className="option" >most votes</option>d notyjcd noth
+            <option className="option" >least votes</option>
+                <option className="option" >most discussed</option>
+              </select >
+              <p className='sort-options' >topics</p>
+              <select className='select' onChange={this.handleChange}>
+                <option></option>
+                <option className="option" >coding</option>
+                <option className="option" >cooking</option>
+                <option className="option" >football</option>
+              </select>
+            </div>
+
+            <div className='article-content'>
+              <Articlelist articles={this.state.articles} user={this.props.user.username} save={this.props.save} delete={this.handleDelete} />
+            </div >
+          </div>
+        </div>
+
+      </div>
     )
   }
 
@@ -60,25 +71,16 @@ class Articles extends Component {
     this.setState({ sort: `?sortby=${e.target.value}` })
   }
 
-
-
-
   handleDelete = (article_id) => {
-    console.log('click')
     if (window.confirm('Are you sure you want to delete this article?') === true) {
       deleteArticle(article_id).then(() => {
         const deleted = this.state.articles.filter(article => article.article_id !== article_id)
-
         this.setState({ articles: deleted })
-
-
-
       })
     } else {
       navigate('/articles')
     }
   }
-
 }
 
 

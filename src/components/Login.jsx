@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import '../css/Login.css'
+
 class Login extends Component {
   state = {
     username: '',
@@ -6,15 +8,22 @@ class Login extends Component {
   render() {
     return (
       <div className='login'>
-        <p>Please sign in</p>
-        <form onSubmit={() => this.props.log(this.state.username)} >
-          <label></label>
-          <input onChange={this.handleChange} name='username' required placeholder='username'></input>
-          <button type='submit'  >sign in</button>
+
+        <form className='username-form' onSubmit={() => this.props.log(this.state.username)} >
+          <input
+            className="username-input"
+            onChange={this.handleChange}
+            name='username'
+            required
+            placeholder='Username' ></input>
+          <button className='enter-button' type='submit'  >Enter</button>
         </form>
-      </div >
+
+      </div>
     );
   }
+
+
   handleChange = (event) => {
     const key = event.target.name
     const value = event.target.value

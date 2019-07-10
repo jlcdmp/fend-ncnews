@@ -1,53 +1,93 @@
-.commentAuthor{
-  padding:0;
-  margin:0;
-font-size: 12px;
-
+*{
+  box-sizing: border-box;
 }
 
-.commentBody{
-  padding:0;
-  margin:0;
-  font-size: 15px
-  
+.page5{
+  display:grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
+grid-gap: 5px
 }
 
-.commentVotes{
-  padding:0;
-  margin:0;
-    font-size: 8px
 
-
+.comment-form-store{
+padding:5px 0px 15px 0px;
 }
 
-.commentPosted{
-  padding:0;
-  margin:0;
-font-size: 8px
 
+.comment-form  button{
+background-color: whitesmoke;
+text-transform: uppercase;
+font-weight: bold;
+padding:5px;
+border: solid 1px gray
 }
 
-.comment{
-  background-color:white;
-  padding:0;
-  margin:0;
-  display:flexbox;
+.comment-form textarea{
+border: 1px solid grey;
+outline: none;
+resize: none;
+width:100%;
+height:5em;
 }
 
+.commentstore{
+  margin: 5px 0px 5px 0px;
+}
 
 .commentList{
-  list-style-type: none;
-  padding:2px;
+  display: flex;
+  flex-direction: column-reverse;
+  background-color: whitesmoke;
+  padding:5px;
+  list-style: none;
+  margin:0;
 }
 
-.articleBody{
-  display:flex;
-  text-align: justify;
-  background-color: white;
-  font-size: 15px;
-  padding:10px
+
+li.commentBody{
+  font-size: 1.1em;
 }
 
-.article{
-  background-color:whitesmoke
+.comment-info-store{
+display:flex;
+flex-direction:row;
 }
+
+li.commentAuthor{
+  color: grey;
+  padding:5px;
+
+}
+
+li.commentPosted{
+  margin:0;
+  font-size: 50%;
+  padding:5px;
+  color: grey;
+  align-self: center;
+  text-align: center;
+
+}
+
+
+.action{
+  display: flex;
+  flex-direction: row;
+  margin:5px 0px 5px 0px;
+  padding:0;
+  margin:0;
+}
+
+.action button{
+  outline:none;
+  border:none;
+}
+
+.action p{
+  margin:5px;;
+  padding:5px;;
+}
+
+
+

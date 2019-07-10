@@ -1,29 +1,35 @@
-.fave{
-  list-style: none;
-  text-decoration: none!important;
+.enter{
+  height:100vh;
+  width:100vw;
+  top:0;
+  left:0;
+  position: absolute;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.test{
+  grid-area: 4/2;
+  display:grid;
+  grid-template-rows: 1fr 1fr
+}
+
+.register{
+  grid-area: 2;
+  text-align: center;
+}
+
+.register-button{
+border:none;
+font-weight:bold;
+font-size:100%;
+text-transform: uppercase;
   background-color: whitesmoke;
-  color:black;
-  padding:5px;
-}
+width:100%;
+padding:5px;
+border-left:solid 1px #222222;
+      border-right:solid 1px #222222;
+border-bottom: solid 1px #222222
 
-
-.faveList{
-margin:0;
-padding:0;
-max-height: 270px;
-overflow:scroll
-}
-
-.homehead{
-background-color: whitesmoke
-}
-
-.userpic{
-  border: 1px solid;
-  border-radius: 2px
-}
-
-.signup{
-display:grid;
-max-width: 200px
-}
+    }

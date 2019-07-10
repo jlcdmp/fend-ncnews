@@ -1,0 +1,104 @@
+.page4{
+display:flex;
+flex-direction: column;
+padding: 0px 10px 0px 10px
+}
+
+*{
+  box-sizing: border-box;
+}
+
+.store{
+grid-area: 1/2;
+display: flex;
+flex-direction: column;
+}
+
+.article{
+  text-align: left;
+  border-bottom: solid 1px #222222;
+}
+
+.artinfo{
+  display: flex;
+  flex-direction: column;
+  border-bottom: solid 1px #222222;
+  width:70%;
+}
+
+p.title{
+font-size: 2em;
+margin:5px 5px 5px 0px;
+font-weight: bold;
+}
+
+p.topic{
+font-size: 1em;
+margin:5px 5px 5px 0px;
+text-align: left;
+}
+
+p.author{
+font-size: 1.5em;
+margin:5px 5px 5px 0px;
+font-weight: bold;
+font-style: italic;
+color: #412cff
+}
+
+p.posted{
+  font-size: 1em;
+  padding:5px;
+  margin:5px;
+}
+
+
+p.body{
+  font-size: 1.3em;
+  line-height: 160%;
+}
+
+.panel-store{
+  border-bottom: solid 1px #222222; 
+  margin: 10px 5px 5px 0px;
+  width: 15em;
+}
+
+.panel{
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}
+
+
+.votes{
+  text-transform: capitalize;
+}
+
+.votes-p{
+  font-size: 1.2em;
+  margin:5px 5px 5px 0px;
+  text-align: left;
+}
+
+.panel button{
+  border:none;
+  outline:none;
+  margin:5px 5px 5px 0px;
+  padding:0px;
+  
+}
+
+.section{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.store button{
+  outline:none;
+  border:1px solid #222222;
+  text-transform: uppercase;
+  padding:5px;
+  background-color: whitesmoke;
+}

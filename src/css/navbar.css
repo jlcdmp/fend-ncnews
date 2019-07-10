@@ -1,0 +1,40 @@
+.nav{
+display:grid;
+grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+grid-gap: 5px;
+width:100%;
+border: solid 1px #222222;
+background-color: whitesmoke
+
+}
+
+.navlink{
+  text-decoration: none;
+}
+
+.nav-store{
+display:flex;
+flex-direction: row;
+margin:auto;
+align-content: center;
+align-items: center;
+align-self: center;
+justify-content: center;
+justify-items: center;
+justify-self: center;
+}
+
+a.navlink{
+  grid-area: 1/2;
+  text-align: center;
+  font-size: 100%;
+  padding:5px;
+}
+
+.icon{
+  grid-area: 1/1;
+  margin:auto;
+  padding:5px;
+  height:100%;
+  width:100%;
+}

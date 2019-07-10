@@ -7,8 +7,6 @@ class Comment extends Component {
   state = {
     comments: [],
   }
-
-
   async componentDidMount() {
     const comments = await fetchComments(this.props.article_id)
     return this.setState({ comments: comments })
@@ -18,15 +16,11 @@ class Comment extends Component {
   render() {
     return (
       <>
-
         <Commentsform article_id={this.props.article_id} user={this.props.user} />
-
         <Commentsection comments={this.state.comments} user={this.props.user} delete={this.handleDelete} />
       </>
     );
   }
-
-
 
 
   handleDelete = (comment_id) => {
@@ -37,9 +31,5 @@ class Comment extends Component {
       })
     }
   }
-
-
-
 }
-
 export default Comment;

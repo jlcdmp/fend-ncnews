@@ -8,6 +8,7 @@ import ArticleForm from './components/ArticleForm'
 import Home from './components/Home'
 import Signup from './components/Signup';
 import Login from './components/Login'
+import './css/app.css'
 
 class App extends Component {
   state = {
@@ -19,16 +20,30 @@ class App extends Component {
   render() {
     if (this.state.user === null) {
       return (
-        <div>
-          {this.state.isSignUpShown ?
-            <Signup sign={this.handleSignup} /> : <Login log={this.handleLogin} />}
-          <h6>No account? Sign up today!</h6>
-          <button onClick={this.handleClick} >{this.state.isSignUpShown ? "Log in instead" : "Sign Up"}</button>
+
+        < div className='enter'>
+
+          <div className='test'>
+            {this.state.isSignUpShown ?
+              <Signup sign={this.handleSignup} /> : <Login log={this.handleLogin} />
+            }
+
+
+            <div className="register">
+              <button className='register-button' onClick={this.handleClick} >
+                {this.state.isSignUpShown ? null : "Sign Up"}
+              </button>
+            </div>
+          </div>
+
         </div>
+
       )
+
     } else {
       return (
-        <div className="App">
+
+        <div class="App">
           <Router>
             <Home path='/home' user={this.state.user} pinned={this.state.pinnedArt} />
             <Articles path='/articles' user={this.state.user} />
@@ -40,31 +55,34 @@ class App extends Component {
       );
     }
   }
+
+
   handleClick = e => {
     this.setState({ isSignUpShown: true })
   }
   handleLogin = (username) => {
     window.event.preventDefault()
     fetchUser(username).then(user => {
-      console.log(user)
       this.setState({ user: user })
       navigate('/home')
     }).catch(err => {
       alert('invalid username')
     })
   }
+
   handleSignup = (newuser) => {
     window.event.preventDefault()
     postUser(newuser)
       .then(user => {
-        console.log(user)
         this.setState({ user })
+        navigate('/home')
       })
       .catch(err => {
         window.confirm('Username taken')
       })
     window.event.target.reset()
   }
+
   handleSave = (article) => {
     this.setState({ pinnedArt: [...this.state.pinnedArt, article] })
     window.alert('saved to favourites')
