@@ -15,7 +15,7 @@ flex-direction: column;
 }
 
 .article{
-  text-align: left;
+  text-align: justify;
   border-bottom: solid 1px #222222;
 }
 
@@ -27,23 +27,25 @@ flex-direction: column;
 }
 
 p.title{
-font-size: 2em;
-margin:5px 5px 5px 0px;
+font-size: 2.2em;
+margin: 5px 5px 5px 0px;
 font-weight: bold;
 }
 
 p.topic{
 font-size: 1em;
-margin:5px 5px 5px 0px;
+margin: 5px 5px 5px 0px;
 text-align: left;
+text-transform: uppercase;
+color:grey;
 }
 
 p.author{
 font-size: 1.5em;
-margin:5px 5px 5px 0px;
+margin:5px 5px 10px 0px;
 font-weight: bold;
 font-style: italic;
-color: #412cff
+color: black;
 }
 
 p.posted{
@@ -56,12 +58,9 @@ p.posted{
 p.body{
   font-size: 1.3em;
   line-height: 160%;
-}
-
-.panel-store{
-  border-bottom: solid 1px #222222; 
-  margin: 10px 5px 5px 0px;
-  width: 15em;
+  width:95%;
+  text-align: justify;
+  text-justify: inter-ideograph;
 }
 
 .panel{
@@ -71,23 +70,17 @@ p.body{
 }
 
 
-.votes{
-  text-transform: capitalize;
+.votes-p{
+font-weight: 900;
+
 }
 
-.votes-p{
-  font-size: 1.2em;
-  margin:5px 5px 5px 0px;
-  text-align: left;
-}
 
 .panel button{
   border:none;
-  outline:none;
-  margin:5px 5px 5px 0px;
-  padding:0px;
-  
 }
+
+
 
 .section{
   display: flex;
@@ -95,10 +88,23 @@ p.body{
   flex-wrap: wrap;
 }
 
-.store button{
-  outline:none;
-  border:1px solid #222222;
-  text-transform: uppercase;
-  padding:5px;
-  background-color: whitesmoke;
+
+
+.toggle{
+  margin: 0px 0px 5px 0px;
+  text-transform:uppercase;
+  border:none;
+  border-top: #222222 solid 1px;
+  font-size: .8em;
+padding:5px;
 }
+
+
+.back{
+  text-transform: uppercase;
+  border:none;
+  border-bottom: 1px solid #222222;
+  padding:5px;
+
+}
+

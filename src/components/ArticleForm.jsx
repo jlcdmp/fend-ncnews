@@ -12,7 +12,23 @@ class ArticleForm extends Component {
   render() {
     return (
       <div class='post' >
-        <Navbar className="navbar" />
+
+
+        <div className="header">
+          <Navbar className='nav' />
+
+
+          <div className="home-user-store" >
+            <img className='user-img' alt="user-img" src={this.props.user.avatar_url} height='40px' width='40px' ></img>
+            <p className='user-name' >@{this.props.user.username}</p>
+          </div>
+
+
+        </div>
+
+
+
+
         <div className="post-store">
           <div className="post-content">
             <div className="post-info">

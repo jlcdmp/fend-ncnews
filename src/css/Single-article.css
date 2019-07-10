@@ -15,6 +15,7 @@ border: solid 1px #222222
 
 .info-topic{
 font-size: 50%;  
+margin:5px;;
 }
 
 .list-title{
@@ -39,6 +40,7 @@ a.list-item{
   margin:0;
   text-transform: capitalize;
   font-size: 1.5em;
+  font-style: italic;
 }
 
 .info-time{
@@ -46,6 +48,7 @@ a.list-item{
   margin:0;
   text-transform: capitalize;
   font-size: 1em;
+  color:grey;
 }
 
 
@@ -57,6 +60,7 @@ a.list-item{
   font-size: 0.5em;
   text-align: justify;
   width:50%;
+  color:grey;
 }
 
 .action-votes{

@@ -43,12 +43,12 @@ class App extends Component {
     } else {
       return (
 
-        <div class="App">
+        <div className="App">
           <Router>
             <Home path='/home' user={this.state.user} pinned={this.state.pinnedArt} />
             <Articles path='/articles' user={this.state.user} />
-            <Article path='/articles/:article_id' user={this.state.user} save={this.handleSave} />
-            <Topics path='/topics' />
+            <Article user={this.state.user} path='/articles/:article_id' save={this.handleSave} />
+            <Topics path='/topics' user={this.state.user} />
             <ArticleForm path='/newarticle' user={this.state.user} />
           </Router>
         </div >

@@ -28,7 +28,7 @@ class Singlearticle extends Component {
 
 
           <div className="info-store" >
-            <p className='info-author' >by {this.props.article.author}</p>
+            <p className='info-author' >{this.props.article.author}</p>
             <p className='info-time'>posted {moment(this.props.article.created_at).fromNow()}</p>
           </div>
 
